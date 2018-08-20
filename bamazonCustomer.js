@@ -16,9 +16,27 @@ var connection = mysql.createConnection({
   database: "bamazonDB"
 });
 
+
 connection.connect(function(err) {
     if (err) throw err;
-   
     console.log("connected as id " + connection.threadId);
-    connection.end();
+    
+    // run the start function after a connection is made
+    start();
+    // connection.end();
   });
+
+  function start(){
+    connection.query("SELECT * FROM products", function(err, results) {
+      if (err) throw err;
+    
+      inquirer
+    .prompt([
+      {
+      name: "item",
+      type: "input",
+      message: "What is the item_id of the product you would like to buy?"
+      },
+    ])
+  }
+)}
