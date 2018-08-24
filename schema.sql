@@ -27,3 +27,9 @@ values ("Fire 7 Kids Edition Tablet","Electronics",79.99,150),
     ("Rubber Rain boots for boys","Kids",13.90,50),
     ("Kidorable kids space umbrella","Kids",18.00,25);
     
+create table Departments(
+departmentID int auto_increment not null,
+department_name varchar(50) not null,
+overHeadCosts decimal(10,2) not null,
+TotalSale decimal(10,2) not null,
+primary key(departmentID));

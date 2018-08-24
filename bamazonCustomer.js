@@ -83,13 +83,38 @@ function start() {
             { item_id: ans.id }
           ], function (err, result) {
             if (err) throw (err);
-            console.log("Success! Your total is $" + grandTotal.toFixed(2) + ". Your item(s) will be shipped to you in 3-5 business days.")
+            console.log("Your total is $" + grandTotal.toFixed(2) + ". Your item(s) will be shipped to you in 3-5 business days.")
           }
           )
-        }
+          connection.query("SELECT * FROM Departments", function (err, deptRes) {
+            if (err) throw err;
+            var index;
+            for (var i = 0; i < deptRes.lengt1h; i++) {
+              if (deptRes[i].department_name === res[whatToBuy].department_name) {
+                index = i;
+              }
+            }
 
+            connection.query("UPDATE Departments SET ? WHERE ?", [
+              {TotalSale: deptRes[index].TotalSale + grandTotal},
+              {department_name: res[whatToBuy].department_name}
+            ], function (err, deptRes){
+              if(err) throw err;
+              console.log(TotalSale);
+            });
+          });
+
+
+        } else {
+          console.log("Insufficient Quantity!");
+        }
+        //ended here
 
       });
+
+
+
+
   }
   )
-}
+};
