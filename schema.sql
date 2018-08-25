@@ -33,3 +33,16 @@ department_name varchar(50) not null,
 overHeadCosts decimal(10,2) not null,
 TotalSale decimal(10,2) not null,
 primary key(departmentID));
+
+select * from Departments;
+
+insert into Departments(department_name, overHeadCosts, TotalSale)
+values ('Entertainment', 50000.00, 15000.00),
+    ('Electronics', 20000.00, 12000.00),
+    ('Household', 30000.00, 15000.00),
+    ('Health', 3000.00, 12000.00),
+    ('Arts&Crafts', 1200.00, 15000.00),
+    ('Kids', 40000.00, 12000.00),
+    ('Toys&Games', 35000.00, 15000.00),
+    ('Grocery', 12000.00, 12000.00);
+
